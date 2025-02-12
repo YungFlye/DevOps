@@ -1,0 +1,6 @@
+@base_url = http://localhost:8080/api
+
+GET {{base_url}}/squareroot?input=7744
+
+# Read about .http files here : https://testfully.io/blog/http-files/
+# And watch a short video here: https://youtu.be/drwc2dF3u7I
