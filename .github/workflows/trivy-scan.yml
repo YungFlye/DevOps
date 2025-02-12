@@ -1,0 +1,21 @@
+name: "Docker Security Scan" 
+on: 
+  push: 
+    branches: [main] 
+  pull_request: 
+    branches: [main] 
+jobs: 
+  scan: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Checkout repository 
+        uses: actions/checkout@v3 
+      - name: Install Trivy 
+        run: | 
+            sudo apt-get update && sudo apt-get install wget -y 
+            wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_Linux-64bit.tar.gz 
+            tar -zxvf trivy_Linux-64bit.tar.gz 
+            sudo mv trivy /usr/local/bin/ 
+            
+      - name: Scan repository for vulnerabilities 
+        run: trivy fs .
