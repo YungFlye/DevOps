@@ -19,3 +19,4 @@ jobs:
             
       - name: Scan repository for vulnerabilities 
         run: trivy fs .
+      
