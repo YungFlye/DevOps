@@ -1,15 +1,17 @@
 name: PR Validator
+
 on:
   pull_request:
     types: [opened, synchronize]
+
 jobs:
   validate-pr:
     runs-on: ubuntu-latest
     steps:
       - name: Check PR Title Format
-      run: |
-        PR_TITLE="${{ github.event.pull_request.title }}"
-        if [[ ! "$PR-TITLE" =~ ^(feature|bugfix|hotfix)\/[a-z0-9-]+$ ]]; then
-          echo "Pull request title must follow the format: feature/branch-name or bugfix/branch-name"
-          exit 1
-        fi
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if [[ ! "$PR_TITLE" =~ ^(feature|bugfix|hotfix)\/[a-z0-9-]+$ ]]; then
+            echo "❌ Pull request title must follow the format: feature/branch-name or bugfix/branch-name"
+            exit 1
+          fi
