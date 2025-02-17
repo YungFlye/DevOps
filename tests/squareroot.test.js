@@ -10,7 +10,7 @@ describe('Sanity test', () => {
 
 describe('addition test', () => {
     test('2 + 2 should equal 2', () => {
-        expect(2+2).toBe(2)
+        expect(2+2).toBe(4)
     })
 });
 
