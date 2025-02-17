@@ -8,6 +8,12 @@ describe('Sanity test', () => {
     })
 });
 
+describe('addition test', () => {
+    test('2 + 2 should equal 2', () => {
+        expect(2+2).toBe(4)
+    })
+});
+
 describe('Squareroot endpoint', () => {
     test('should return the squareroot of 7744', async () => {
         const res = await request(app).get('/api/squareroot/?input=7744');
